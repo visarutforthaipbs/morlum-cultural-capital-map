@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Concert Map</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="form-container">
+      <button id="toggleFormButton">Add a Concert</button>
+      <div class="form-content" id="formContent">
+        <h2>Add a Concert</h2>
+        <form id="concertForm">
+          <input type="text" id="band" placeholder="Band Name" required />
+          <textarea id="details" placeholder="Band Details" required></textarea>
+          <input
+            type="number"
+            step="any"
+            id="lat"
+            placeholder="Latitude"
+            required
+          />
+          <input
+            type="number"
+            step="any"
+            id="long"
+            placeholder="Longitude"
+            required
+          />
+          <input type="file" id="picture" accept="image/*" required />
+          <button type="submit">Add Concert</button>
+        </form>
+      </div>
+    </div>
+    <script src="concerts.js"></script>
+  </body>
+</html>
