@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #455a97;
+  --secondary-color: #c4ae7a;
+  --third-color: #84ab81;
+  --forth-color: #af4b4e;
+}
+
+body {
+  font-family: "IBM Plex Sans Thai", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  font-family: "IBM Plex Sans Thai", sans-serif;
+}
+
+b {
+  font-family: "IBM Plex Sans Thai", sans-serif;
+  font-size: 16px;
+  padding-bottom: 50px;
+}
+
+.leaflet-popup-content p {
+  margin: 18px 0;
+  font-style: italic;
+}
+
+#map {
+  flex: 1;
+  width: 100%;
+}
+
+#description-box {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  font-family: "IBM Plex Sans Thai", sans-serif;
+  z-index: 1000;
+}
+
+#description-box h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+
+#description-box p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+.thumbnail-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 200px; /* Adjust width as needed */
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  background-image: url("asset/play.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none; /* Ensure the play button does not intercept clicks */
+}
+
+.thumbnail-wrapper:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 0.8;
+}
