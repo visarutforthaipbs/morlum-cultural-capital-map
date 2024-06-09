@@ -21,7 +21,7 @@ L.tileLayer(
 
 // Define custom marker icon using SVG
 const customIcon = L.icon({
-  iconUrl: "../asset/icon-circle-background.svg",
+  iconUrl: "./asset/icon-circle-background.svg",
   iconSize: [38, 38],
   iconAnchor: [19, 38],
   popupAnchor: [0, -38],
