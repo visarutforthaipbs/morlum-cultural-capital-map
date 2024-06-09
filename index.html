@@ -26,20 +26,18 @@
   </head>
   <body>
     <div id="map"></div>
-    <div id="search-container">
-      <input
-        type="text"
-        id="search-box"
-        placeholder="ค้นหาวงหมอลำหรือสถานที่"
-      />
+    <div id="filter-container">
+      <form id="filter-form">
+        <input type="text" id="name-filter" placeholder="ชื่อคณะ" />
+        <input type="text" id="location-filter" placeholder="สถานที่" />
+        <button type="button" id="apply-filter">กรองข้อมูล</button>
+      </form>
     </div>
     <div id="description-box">
       <div id="description-header">
         <button id="toggle-description">&times;</button>
       </div>
-      <div id="description-header">
-        <h2>แผนที่ต้นทุนทางวัฒนธรรมของหมอลำอีสาน</h2>
-      </div>
+      <h2>แผนที่ต้นทุนทางวัฒนธรรมของหมอลำอีสาน</h2>
       <p>
         แผนที่นี้รวบรวมข้อมูลวงหมอลำในภาคอีสานของประเทศไทย
         คุณสามารถดูตำแหน่งที่ตั้ง และข้อมูลติดต่อของวงหมอลำต่างๆ ได้ที่นี่
@@ -51,6 +49,10 @@
           >Cultural Mapping Thailand</a
         >
       </p>
+    </div>
+    <div id="sidebar">
+      <div id="sidebar-content"></div>
+      <button id="close-sidebar">&times;</button>
     </div>
     <script src="concerts.js"></script>
   </body>

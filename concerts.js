@@ -50,36 +50,40 @@ function createMarker(concert) {
   const videoUrl = concert["videoUrl"];
   const thumbnailUrl = getYouTubeThumbnail(videoUrl);
 
-  const popupContent = `
-  <b>${name}</b><br>เบอร์ติดต่อ: ${contact}<br>รายละเอียด: ${details}<br>
-  <p>คลิกที่ภาพขนาดย่อเพื่อดูวิดีโอ:</p>
-  <a href="${videoUrl}" target="_blank" class="thumbnail-wrapper">
-    <img src="${thumbnailUrl}" alt="YouTube Thumbnail">
-    <div class="play-button"></div>
-  </a>
-  <br>
-  <a href="http://example.com/more-info/${name}" target="_blank">More Info</a>`;
-
   if (!isNaN(lat) && !isNaN(long)) {
-    return L.marker([lat, long], { icon: customIcon }).bindPopup(popupContent);
+    const marker = L.marker([lat, long], { icon: customIcon });
+
+    marker.on("click", () => {
+      showSidebar({
+        name,
+        contact,
+        details,
+        videoUrl,
+        thumbnailUrl,
+      });
+    });
+
+    return marker;
   }
   return null;
 }
 
-// Function to load data based on map bounds
-function loadData(bounds, query = "") {
+// Function to load data based on filter criteria
+function loadData(bounds, nameFilter = "", locationFilter = "") {
   markers.clearLayers();
 
   d3.csv("clean-morlum-data-picurl.csv")
     .then((data) => {
       data.forEach((concert) => {
         const name = concert["ชื่อคณะ"];
+        const location = concert["สถานที่"] || "";
         const lat = parseFloat(concert["lat"]);
         const long = parseFloat(concert["long"]);
 
         if (
           bounds.contains([lat, long]) &&
-          name.toLowerCase().includes(query.toLowerCase())
+          name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+          location.toLowerCase().includes(locationFilter.toLowerCase())
         ) {
           const marker = createMarker(concert);
           if (marker) markers.addLayer(marker);
@@ -91,22 +95,47 @@ function loadData(bounds, query = "") {
     .catch((error) => console.error("Error fetching concert data:", error));
 }
 
+// Show sidebar with details
+function showSidebar(details) {
+  const sidebar = document.getElementById("sidebar");
+  const sidebarContent = document.getElementById("sidebar-content");
+
+  sidebarContent.innerHTML = `
+    <h2>${details.name}</h2>
+    <p><strong>เบอร์ติดต่อ:</strong> ${details.contact}</p>
+    <p><strong>รายละเอียด:</strong> ${details.details}</p>
+    <p><strong>วิดีโอ:</strong></p>
+    <a href="${details.videoUrl}" target="_blank" class="thumbnail-wrapper">
+      <img src="${details.thumbnailUrl}" alt="YouTube Thumbnail">
+      <div class="play-button"></div>
+    </a>
+  `;
+
+  sidebar.classList.add("show");
+}
+
+// Close sidebar
+document.getElementById("close-sidebar").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.remove("show");
+});
+
 // Initial data load
 loadData(map.getBounds());
 
 // Reload data when map movement ends
 map.on("moveend", () => {
   const bounds = map.getBounds();
-  loadData(bounds, searchBox.value);
+  loadData(bounds, nameFilter.value, locationFilter.value);
 });
 
-// Search box functionality
-const searchBox = document.getElementById("search-box");
+// Filter form functionality
+const nameFilter = document.getElementById("name-filter");
+const locationFilter = document.getElementById("location-filter");
+const applyFilter = document.getElementById("apply-filter");
 
-searchBox.addEventListener("input", () => {
-  const query = searchBox.value;
+applyFilter.addEventListener("click", () => {
   const bounds = map.getBounds();
-  loadData(bounds, query);
+  loadData(bounds, nameFilter.value, locationFilter.value);
 });
 
 // Toggle description box
