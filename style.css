@@ -5,6 +5,7 @@
   --secondary-color: #c4ae7a;
   --third-color: #84ab81;
   --forth-color: #af4b4e;
+  --main-font: "IBM Plex Sans Thai", sans-serif;
 }
 
 body {
@@ -16,24 +17,37 @@ body {
   flex-direction: column;
 }
 
-* {
-  font-family: "IBM Plex Sans Thai", sans-serif;
-}
-
-b {
-  font-family: "IBM Plex Sans Thai", sans-serif;
-  font-size: 16px;
-  padding-bottom: 50px;
-}
-
-.leaflet-popup-content p {
-  margin: 18px 0;
-  font-style: italic;
-}
-
 #map {
   flex: 1;
   width: 100%;
+  height: 100%; /* Ensure the map fills the screen height */
+}
+
+#search-container {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+
+#search-box {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  font-family: var(--main-font);
+}
+
+a {
+  text-decoration: none;
+  color: var(--forth-color);
 }
 
 #description-box {
@@ -44,16 +58,46 @@ b {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 250px;
+  max-width: 300px;
+  width: calc(100% - 40px);
   font-family: "IBM Plex Sans Thai", sans-serif;
   z-index: 1000;
+  box-sizing: border-box;
+  drop-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#description-box.hidden {
+  display: none;
+}
+
+#description-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#toggle-description {
+  background-color: var(--third-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 #description-box h2 {
   margin: 0;
-  padding-bottom: 10px;
   font-size: 18px;
   color: var(--primary-color);
+  flex: 1; /* Allow h2 to take up remaining space */
 }
 
 #description-box p {
@@ -90,4 +134,28 @@ b {
 .thumbnail-wrapper:hover .play-button {
   transform: translate(-50%, -50%) scale(1.1);
   opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  #description-box {
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    top: 10px;
+  }
+
+  #search-container {
+    width: calc(100% - 20px);
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  #search-box {
+    width: 100%;
+  }
+
+  .thumbnail-wrapper {
+    width: 100%;
+  }
 }

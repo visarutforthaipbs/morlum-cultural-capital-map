@@ -6,6 +6,14 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
@@ -13,18 +21,36 @@
       type="image/svg+xml"
     />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster-src.js"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
   </head>
   <body>
     <div id="map"></div>
+    <div id="search-container">
+      <input
+        type="text"
+        id="search-box"
+        placeholder="ค้นหาวงหมอลำหรือสถานที่"
+      />
+    </div>
     <div id="description-box">
-      <h2>แผนที่หมอลำ</h2>
+      <div id="description-header">
+        <button id="toggle-description">&times;</button>
+      </div>
+      <div id="description-header">
+        <h2>แผนที่ต้นทุนทางวัฒนธรรมของหมอลำอีสาน</h2>
+      </div>
       <p>
         แผนที่นี้รวบรวมข้อมูลวงหมอลำในภาคอีสานของประเทศไทย
         คุณสามารถดูตำแหน่งที่ตั้ง และข้อมูลติดต่อของวงหมอลำต่างๆ ได้ที่นี่
       </p>
       <br />
-      <p>ข้อมุลที่ใช้ในแผนที่นี้มาจาก สำนักงานสถิติแห่งชาติ และ</p>
+      <p>
+        ข้อมูลที่ใช้ในแผนที่นี้มาจาก <br />
+        <a href="https://dp.culturalmapthailand.info/Index/"
+          >Cultural Mapping Thailand</a
+        >
+      </p>
     </div>
     <script src="concerts.js"></script>
   </body>
