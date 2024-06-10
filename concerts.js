@@ -165,7 +165,7 @@ function createMarker(concert) {
 function loadData(bounds, typeFilter = "") {
   markers.clearLayers();
 
-  d3.csv("cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal.csv")
+  d3.csv("v2-cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal - cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal.csv")
     .then((data) => {
       data.forEach((concert) => {
         const type = concert["ประเภท"];
@@ -233,7 +233,7 @@ applyFilter.addEventListener("click", () => {
 });
 
 // Populate filter dropdown with unique types from the dataset
-d3.csv("cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal.csv")
+d3.csv("v2-cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal - cleaned_ข้อมูลสำหรับแผนที่นิเวศหมอลำ_2024_no_removal.csv")
   .then((data) => {
     const uniqueTypes = [...new Set(data.map(concert => concert["ประเภท"]))];
     const typeFilterElement = document.getElementById("type-filter");
