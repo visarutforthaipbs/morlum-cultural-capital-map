@@ -28,91 +28,91 @@ const markers = L.markerClusterGroup();
 // Define custom marker icons for each type
 const markerIcons = {
   "ค่ายเพลง": L.icon({
-    iconUrl: "./asset/music-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/media-producemap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "เครื่องดนตรี": L.icon({
-    iconUrl: "./asset/instrument-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/music-instrumentmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "เครื่องเสียง": L.icon({
-    iconUrl: "./asset/sound-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/speakermap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "จัดเวที": L.icon({
-    iconUrl: "./asset/stage-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/stagemap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "ชุด": L.icon({
-    iconUrl: "./asset/costume-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/custommap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "นักเขียน": L.icon({
-    iconUrl: "./asset/writer-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/writtermap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "ปราชญ์ชาวบ้าน": L.icon({
-    iconUrl: "./asset/village-expert-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/wise-manmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "รับผลิตสื่อ": L.icon({
-    iconUrl: "./asset/media-production-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/media-producemap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "วงดนตรี": L.icon({
-    iconUrl: "./asset/band-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/music-bandmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "ศิลปินแห่งชาติ": L.icon({
-    iconUrl: "./asset/national-artist-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/national-artistmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "สถาบันความรู้หมอลำ": L.icon({
-    iconUrl: "./asset/moralam-knowledge-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/univerisytmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "หมอลำ": L.icon({
-    iconUrl: "asset/icon-circle-background.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/morlum-bandmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "ทางเครื่อง": L.icon({
-    iconUrl: "./asset/machine-path-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/dancersmap-icon.svgg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "ออกแบบการแสดง": L.icon({
-    iconUrl: "./asset/performance-design-icon.svg", // Replace with the correct path to your icon
+    iconUrl: "asset/map-icon/perform-designmap-icon.svg", // Replace with the correct path to your icon
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
   }),
   "default": L.icon({
-    iconUrl: "./asset/default-icon.svg", // A default icon for types not specifically defined
+    iconUrl: "asset/icon-circle-background-resized.svg", // A default icon for types not specifically defined
     iconSize: [38, 38],
     iconAnchor: [19, 38],
     popupAnchor: [0, -38],
